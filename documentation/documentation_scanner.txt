@@ -1,0 +1,91 @@
+Github link: https://github.com/dacianf/FLDC
+
+Class Controller
+
+Implementation details:
+    Reads the input file with the code line by line, gets each token from each line and checks if it is part of the specifications.
+    If the token is:
+        * an identifier or a constant it will be added in both symbol table and program internal form;
+        * a reserved word, it will be added just in the internal form
+    If it is not one from the above it will throw an error with the error's location
+    After the whole input file is parsed, the `program internal form` and the `symbol table` will be written into files.
+
+Methods:
+    * public run(String fileName)
+        -PRE:
+            fileName - a valid sequence of characters which describes a valid file
+        -POST:
+            given file will be read and split in tokens
+        -RETURN:
+            nothing - if the file is lexical correct
+            throws error - if there exists a lexical error
+
+    * public saveData()
+        -PRE:
+            -
+        -POST:
+            Program internal form will be saved in pif.out
+            Symbol table will be saved in st.out
+        -RETURN:
+            -
+
+
+Class Scanner
+
+Implementation details:
+    Scanner uses method `getTokens` to get the tokens out of a given line. For doing this, it gets the characters from the line, splits them and checks it they match of the categories from the specifications.
+
+Methods:
+    * public getTokens(String line)
+        - PRE:
+            token - a valid sequence of characters
+        - POST:
+            given line is parsed from the position where this function was when it return the result at last call
+        - RETURN:
+            token - a sequence of characters which represent the found token
+
+
+Class Specification
+
+Implementation details:
+    Specification class contains a list with each separators, operators and reserved words and a dictionary which contains each word with its codification.
+
+
+Methods:
+    * public getTokens(String token)
+        - PRE:
+            token - a valid sequence of characters
+        - POST:
+            -
+        - RETURN:
+            true - if the given token match the regex for an identifier
+            false - otherwise
+
+    * public isConstant(String token)
+        - PRE:
+            token - a valid sequence of characters
+        - POST:
+            -
+        - RETURN:
+            true - if the given token match the regex for a constant
+            false - otherwise
+
+    * public isOperator(String char)
+        - PRE:
+            token - a valid character
+        - POST:
+            -
+        - RETURN:
+            true - if the given char is in the list of operators
+            false - otherwise
+
+    * public isEscapedQuote(String line, Integer index)
+        - PRE:
+            line - a valid sequence of characters
+            index - a positive integer < line.size
+        - POST:
+            -
+        - RETURN:
+            true - if the given position in the line contains the escape quote
+            false - otherwise
+

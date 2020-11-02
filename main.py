@@ -1,19 +1,12 @@
-from HashTable import HashTable
+from controller.Controller import Controller
+from models.HashTable import HashTable
+from models.Scanner import Scanner
+from models.Specification import Specification
 
 if __name__ == '__main__':
-    table = HashTable(hashTableSize=10)
-    table.add("int")
-    table.add("double")
-    table.add("]")
-    table.add("char")
-    table.add("bool")
-    table.add("int")
-    print(table.findPosition("int"))
-    print(table.findPosition("no"))
-    print(table)
-    x = int(input())
-    y = int(input())
-    print(table.getElement(423, 34))
-    print(table.getElement(x, 34))
-    print(table.getElement(x, -1))
-    print(table.getElement(x, y))
+    fileName = input("Insert file name: ")
+    controller = Controller(HashTable(), Scanner(Specification()), [])
+
+    controller.run(fileName)
+
+    controller.saveData()

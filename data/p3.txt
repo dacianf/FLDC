@@ -1,0 +1,7 @@
+main(){
+    a = "
+    int c = 2
+    for int i=0, i < 2a; i++{
+         afiseaza(i)
+    }
+}
