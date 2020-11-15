@@ -1,7 +1,7 @@
 Finite Automata
 
 Dacian Florea, 933
-Github: https://github.com/dacianf/lftc/lab_fa
+Github: https://github.com/dacianf/FLDC/tree/main/lab_fa
 
 Implementation:
 
