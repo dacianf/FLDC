@@ -15,9 +15,9 @@ def handleOption(fa, option):
         print("FA: ", fa)
     elif option == 6:
         if fa.isDFA():
-            print("FA is DNF")
+            print("FA is DFA")
         else:
-            print("FA is NOT DNF")
+            print("FA is NOT DFA")
     elif option == 7:
         if not fa.isDFA():
             print("FA must be DFA")

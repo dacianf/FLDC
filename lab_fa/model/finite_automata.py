@@ -48,7 +48,7 @@ class FiniteAutomata:
     def getTransitionsFor(self, state):
         if not self.isState(state):
             raise Exception('Can only get transitions for states')
-        return [trans for trans in self.transitions.keys() if trans[0] == state]
+        return [(trans, self.transitions[trans]) for trans in self.transitions.keys() if trans[0] == state]
 
     def showTransitionsFor(self, state):
         transitions = self.getTransitionsFor(state)
