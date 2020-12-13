@@ -1,0 +1,28 @@
+program cmpdstmt stmt decl simplestmt structstmt type primarytype arraytype assignment iostmt expression term operation nr letter ifstmt whilestmt forstmt condition relation digit non_zero_digit integer stmts
+start begin end integer64 double char bool [ ] = + - * / % " read ) write if while ( for ; < <= == => > != && || \ IDENTIFIER CONST
+program
+program -> start cmpdstmt
+stmts -> stmt ; | stmt ; stmts
+cmpdstmt -> begin stmts end
+stmt -> decl | simplestmt | structstmt
+decl -> type IDENTIFIER
+type -> primarytype | arraytype
+primarytype -> integer64 | double | char | bool
+arraytype -> primarytype [ integer ]
+simplestmt -> assignment | iostmt
+assignment -> IDENTIFIER = expression
+expression -> term | term operation term 
+term -> IDENTIFIER | CONST 
+operation -> + | - | * | / | %
+iostmt -> read ( IDENTIFIER ) | write ( CONST ) | write ( IDENTIFIER )
+structstmt -> cmpdstmt | ifstmt | whilestmt | forstmt
+ifstmt -> if ( condition ) cmpdstmt
+condition -> expression relation expression
+whilestmt -> while ( condition ) cmpdstmt
+forstmt -> for ( assignment ; condition ; expression ) cmpdstmt
+digit -> 0 | non_zero_digit
+non_zero_digit -> 1 | 2 | ... | 9
+relation -> < | <= | == | >= | > | != | &&
+digits -> E | digit | digit digits
+integer -> + non_zero_digit digits | - non_zero_digit digits
+nr -> 0 | integer | integer . digit digits
